@@ -65,9 +65,11 @@ tags:
   - attack.discovery
 
 
----
-Splunk Query: Debugger Attachment Detection
-spl
+# Debugger Attachment Detection – Splunk Query
+
+## Query
+
+```spl
 index=linux sourcetype=process_creation
 (Image="/gdb" OR Image="/lldb" OR Image="/strace")
 | table _time, host, user, Image, CommandLine, pid
