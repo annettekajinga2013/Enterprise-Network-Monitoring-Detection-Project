@@ -36,10 +36,6 @@ MITRE ATT&CK: T1518, T1041, T1571, T1003
 Platforms: Linux, Windows
 
 yaml
-Copy
-Edit
-
----
 
 ---
 
@@ -69,3 +65,30 @@ tags:
   - attack.discovery
 
 
+---
+Splunk Query: Debugger Attachment Detection
+spl
+index=linux sourcetype=process_creation
+(Image="/gdb" OR Image="/lldb" OR Image="/strace")
+| table _time, host, user, Image, CommandLine, pid
+| sort -_time
+
+---
+
+# Explanation
+
+#index=linux sourcetype=process_creation
+
+Searches your Linux process logs.
+
+#(Image="/gdb" OR Image="/lldb" OR Image="/strace")
+
+Matches processes where the Image field ends with debugger tools.
+
+#table _time, host, user, Image, CommandLine, pid
+
+Displays relevant details: time, host, user, process image, command line, process ID.
+
+#sort -_time
+
+Shows the latest suspicious activity at the top.
