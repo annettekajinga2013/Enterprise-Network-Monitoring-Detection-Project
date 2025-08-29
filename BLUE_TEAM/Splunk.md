@@ -34,9 +34,25 @@
 
 ## Limitations & Challenges
 - High data volume from Suricata caused **storage strain**
-- **Licensing limitations** (free tier capped at 500MB/day)
-- Indexing delays during **peak hours**
 - **False positives** in initial rule sets
+
+## Challenges
+-  Root Cause Analysis
+ The main issues identified were:
+ • File permission errors on Splunk Forwarder installation directory.
+ • Splunk Forwarder daemon running under restricted user permissions.
+ • Receiving port 9997 not enabled on Splunk Enterprise (missing receiving configuration).
+
+ ## Resolution Steps
+ Steps needed to resolve the setup:
+ 1. Re-run Splunk Forwarder commands with sudo to avoid ownership issues.
+ 2. On Splunk Enterprise, enable receiving:
+ ./splunk enable listen 9997 -auth admin:changeme
+ 3. Restart Splunk Enterprise to apply port listening.
+ 4. Re-run on client:
+ ./splunk add forward-server 172.20.10.4:9997 -auth cyberagentberry:password
+ ./splunk add monitor /var/log/auth.log
+ 5. Verify connection with './splunk list forward-server'
 
 ---
 
@@ -44,5 +60,6 @@
 - Achieved **real-time detection of network threats**
 - Reduced **investigation time by 40%** using correlated views
 - Delivered a **reusable Splunk dashboard template** for enterprise use
+
 
 
