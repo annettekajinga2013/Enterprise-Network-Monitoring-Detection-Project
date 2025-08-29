@@ -1,4 +1,5 @@
 ### **1. Sigma Rule 
+
 <img width="810" height="614" alt="image" src="https://github.com/user-attachments/assets/c5fd59f9-18ea-485f-b46a-531e75d2d528" />
 
 
