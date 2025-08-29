@@ -1,39 +1,6 @@
-# Sigma Rules – Reverse Engineering Detection
+### **1. Sigma Rule 
+<img width="810" height="614" alt="image" src="https://github.com/user-attachments/assets/c5fd59f9-18ea-485f-b46a-531e75d2d528" />
 
-This repository contains Sigma rules and Splunk queries to detect suspicious activities related to reverse engineering and debugging on Linux and Windows systems.
-
-## Rules Included
-
-1. **Debugger Attachment Detection (Linux)**  
-   Detects processes attaching debuggers (gdb, lldb, strace).
-
-2. **Unusual Port Activity (Linux/Windows)**  
-   Detects network connections on uncommon ports often used by reverse engineering tools or backdoors.
-
-## Usage
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-org/sigma-reverse-engineering.git
-Navigate to the rules folder:
-
-bash
-Copy
-Edit
-cd sigma-reverse-engineering/rules/reverse-engineering
-Convert Sigma rules to your SIEM format using sigmac:
-
-bash
-Copy
-Edit
-sigmac -t splunk debugger-attachment-detection.yml
-sigmac -t splunk unusual-port-activity.yml
-Use the .spl queries directly in Splunk to monitor for suspicious activity.
-
-# Tags
-MITRE ATT&CK: T1518, T1041, T1571, T1003
-
-Platforms: Linux, Windows
 
 yaml
 
@@ -77,6 +44,10 @@ index=linux sourcetype=process_creation
 
 ---
 
+
+
+
+---
 # Explanation
 
 #index=linux sourcetype=process_creation
