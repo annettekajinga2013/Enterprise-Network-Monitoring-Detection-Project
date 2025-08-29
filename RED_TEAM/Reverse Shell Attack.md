@@ -43,3 +43,17 @@ exploit
 
 <img width="1358" height="799" alt="image" src="https://github.com/user-attachments/assets/cb041ef2-1f3d-43a1-8e1f-69a9a033ce39" />
 
+
+
+
+
+
+## Notes / Recommendations
+Ensure Object Access Auditing is enabled for file and registry tracking.
+
+Regularly monitor Event IDs 4688, 4663, 4657, 4698 in Splunk or your SIEM.
+
+Store Sigma rules as documentation and convert them to SPL using online converters or manually.
+
+Use network IDS like Suricata to complement endpoint event detection.
+
