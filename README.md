@@ -1,5 +1,5 @@
 # Enterprise-Network-Monitoring
-# 🧠 Enterprise Network Monitoring & Detection Lab
+# 🧠 Enterprise Network Monitoring & Detection 
 
 ## 🎯 Objectives
 - Simulate enterprise traffic and attacks
@@ -39,3 +39,4 @@ Log collection, parsing, and analysis
 - Blue Team/Red Team: Peace Willie 
 - Documentation: Obioma Felicity Igwe/Annette Kajinga
 - Presentation:Emmanuel Agbonavbare /Rofiat Durojaiy/ Steven Chukwuebuka
+
