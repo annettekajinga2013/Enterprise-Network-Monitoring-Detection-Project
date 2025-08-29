@@ -23,9 +23,3 @@
 
 
 
-
-## Key Outcomes
-- Enhanced detection coverage with custom signatures  
-- Improved threat hunting aligned with ATT&CK framework  
-- Accelerated incident response with high-fidelity IOCs  
-- Documented knowledge base for future investigations
