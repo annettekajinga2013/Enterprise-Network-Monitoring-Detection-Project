@@ -40,3 +40,10 @@ The reverse engineering phase of the Enterprise Network Monitoring & Detection (
 5. **Validation & Testing**  
    Tested rules against captured traffic.  
    Tuned for minimal false positives.
+
+## Key Outcomes
+- Enhanced detection coverage with custom signatures  
+- Improved threat hunting aligned with ATT&CK framework  
+- Accelerated incident response with high-fidelity IOCs  
+- Documented knowledge base for future investigations
+
