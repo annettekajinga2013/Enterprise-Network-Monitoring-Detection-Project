@@ -41,7 +41,6 @@ The architecture integrates **Suricata**, **Sysmon**, and **Splunk** connected v
 
 ### Suricata (Ubuntu)
 
-```bash
 sudo apt update && sudo apt install -y suricata
 # Edit /etc/suricata/suricata.yaml to enable:
 # eve.json, fileinfo, filestore with SHA256
@@ -160,4 +159,5 @@ Sysmon event logs
 Splunk correlation dashboard
 
 Tailscale status
+
 
