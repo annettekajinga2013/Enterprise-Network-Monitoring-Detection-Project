@@ -4,7 +4,7 @@
 ## Sreenshots
 
 <img width="1336" height="805" alt="image" src="https://github.com/user-attachments/assets/73d3bcdd-2c67-4e3d-840c-238fb4c20ebc" />
-
+1.1 shows the persistent that was created(meterpreter test in the hkcu)
 
 <img width="1333" height="792" alt="image" src="https://github.com/user-attachments/assets/4fcd3cfc-46ea-4f74-89a9-bc30d6c5fa35" />
 
