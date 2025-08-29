@@ -61,5 +61,9 @@
 - Reduced **investigation time by 40%** using correlated views
 - Delivered a **reusable Splunk dashboard template** for enterprise use
 
+- <img width="1604" height="860" alt="image" src="https://github.com/user-attachments/assets/f6ac4ca1-aad7-4087-b4d8-1194dc26b081" />
+
+
+
 
 
