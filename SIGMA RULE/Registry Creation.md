@@ -1,15 +1,4 @@
 ## Registry Creation / Modification
-title: Suspicious Meterpreter Registry Activity
-id: 1a2b3c4d-5678-90ab-cdef-1234567890ab
-status: experimental
-description: Detects creation or modification of the MeterpreterTest registry key
-logsource:
-    product: windows
-    service: security
-detection:
-    selection_eventid:
-        EventID: 4657
-    selection_object:
-        ObjectName: "HKCU\\Software\\MeterpreterTest"
-    condition: selection_eventid OR selection_object
-level: high
+
+
+<img width="771" height="377" alt="image" src="https://github.com/user-attachments/assets/d68b40e1-8aeb-4204-acd7-e7b315e6a149" />
