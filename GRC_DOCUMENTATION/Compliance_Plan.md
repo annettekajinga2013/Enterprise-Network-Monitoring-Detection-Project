@@ -2,6 +2,7 @@ COMPLIANCE LOG FORMAT REVIEW (POLICY)
 
 
 1. PURPOSE
+
 To establish a standardized log format and handling process across Splunk and Telisgate that ensures regulatory compliance, operational visibility, and incident response readiness.
 
 
@@ -81,6 +82,7 @@ PCI DSS: Section 10 (log management)
 HIPAA: Security Rule §164.312(b) (audit controls)
 SOX: Section 404 (IT controls)
 ISO 27001: Annex A.12.4 (logging and monitoring)
+
 
 
 
