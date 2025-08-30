@@ -17,38 +17,27 @@ Cloud services and SaaS integrations
 3. LOG FORMAT REQUIREMENTS
 All logs must be structured with the following minimum fields, ensuring Splunk and Telisgate can parse and correlate them:
 
-Field																									
-Requirement
+  Field																									Requirement
 
-Timestamp											
-ISO 8601 format with timezone (e.g., 2025-08-20T14:32:10Z)
+  Timestamp											ISO 8601 format with timezone (e.g., 2025-08-20T14:32:10Z)
 
-Event ID											
-Unique identifier for correlation
+  Event ID											Unique identifier for correlation
 
-Source System									
-Hostname or system identifier
+  Source System									Hostname or system identifier
 
-Source IP/Port               
-Network origin of the event
+  Source IP/Port               Network origin of the event
 
-Destination IP/Port           
-If applicable, target system or service
+  Destination IP/Port           If applicable, target system or service
 
-User/Account                  
-Normalized identity field (userPrincipalName, UID, or ServiceAccount)
+  User/Account                  Normalized identity field (userPrincipalName, UID, or ServiceAccount)
 
-Event Type                    
-Classification (e.g., authentication, data_access,config_change)
+  Event Type                    Classification (e.g., authentication, data_access,config_change)
 
-Severity                      
-Standardized scale (e.g., Informational, Warning, Critical)
+  Severity                      Standardized scale (e.g., Informational, Warning, Critical)
 
-Message/Details               
-Human-readable event details
+  Message/Details               Human-readable event details
 
-Compliance Tag                
-Regulatory mapping (e.g., PCI, HIPAA, SOX, ISO27001) if applicable Example (JSON format, Splunk-ready)
+  Compliance Tag                Regulatory mapping (e.g., PCI, HIPAA, SOX, ISO27001) if applicable Example (JSON format, Splunk-ready)
 
 
 4. LOG COLLECTION & RENTENTION
@@ -92,6 +81,7 @@ PCI DSS: Section 10 (log management)
 HIPAA: Security Rule §164.312(b) (audit controls)
 SOX: Section 404 (IT controls)
 ISO 27001: Annex A.12.4 (logging and monitoring)
+
 
 
 
