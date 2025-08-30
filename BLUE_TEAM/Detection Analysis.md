@@ -28,89 +28,69 @@ The objective is to **correlate network-based download activity with endpoint fi
 4. Verify logs in Event Viewer:
 Applications and Services Logs → Microsoft → Windows → Sysmon → Operational
 
-Suricata Setup (Linux Sensor Recommended)
 
-Install Suricata:
+## Suricata Setup (Linux Sensor Recommended)
 
-sudo apt install suricata
+1. Install Suricata:
+
+<img width="596" height="78" alt="image" src="https://github.com/user-attachments/assets/e9e06223-48b8-4911-9dcf-d355faa424f5" />
 
 
-Edit /etc/suricata/suricata.yaml to enable eve.json, fileinfo, and filestore.
+2. Edit /etc/suricata/suricata.yaml to enable eve.json, fileinfo, and filestore.
 Example configuration snippet:
 
-outputs:
-  - eve-log:
-      enabled: yes
-      filetype: regular
-      filename: eve.json
-      types:
-        - alert
-        - http
-        - dns
-        - fileinfo
-        - files:
-            file-store:
-              enabled: yes
-              dir: filestore
-              force-hash: [sha256]
+<img width="513" height="395" alt="image" src="https://github.com/user-attachments/assets/bcde5867-09cf-4bd9-942a-80cb9e81e9d8" />
 
 
-Start Suricata:
+3. Start Suricata:
 
-sudo systemctl enable --now suricata
-
-
-Verify eve.json and filestore output.
-
-Splunk Setup
-
-Install Splunk Enterprise or Splunk Universal Forwarder.
-
-Configure inputs.conf:
-
-For Sysmon logs (Windows VM):
-
-[WinEventLog://Microsoft-Windows-Sysmon/Operational]
-disabled = 0
-index = windows
-sourcetype = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+<img width="539" height="74" alt="image" src="https://github.com/user-attachments/assets/1ee80549-1b3b-46fd-ba51-2d8140247075" />
 
 
-For Suricata logs (Linux sensor):
-
-[monitor:///var/log/suricata/eve.json]
-disabled = false
-index = suricata
-sourcetype = suricata:eve
+4. Verify eve.json and filestore output.
 
 
-Configure outputs.conf to forward logs to your Splunk indexer.
+## Splunk Setup
 
-Install Splunk Add-ons for Sysmon and Suricata to parse fields correctly.
+1. Install Splunk Enterprise or Splunk Universal Forwarder.
 
-Correlation in Splunk
+2. Configure inputs.conf:
+
+## * For Sysmon logs (Windows VM):
+
+<img width="569" height="152" alt="image" src="https://github.com/user-attachments/assets/60a4e3b6-341a-4510-89bc-ed5c5d34559c" />
+
+
+## *For Suricata logs (Linux sensor):
+
+<img width="551" height="145" alt="image" src="https://github.com/user-attachments/assets/56031696-fb6e-4615-a88d-4d91b42dd4db" />
+
+
+3. Configure outputs.conf to forward logs to your Splunk indexer.
+
+4. Install Splunk Add-ons for Sysmon and Suricata to parse fields correctly.
+
+## Correlation in Splunk
 1. Hash-based Correlation
 
 Match Suricata fileinfo sha256 with Sysmon process/file hash.
 
-index=suricata event_type=fileinfo
-| eval file_sha256=fileinfo.sha256
-| join type=left file_sha256 [ search index=windows EventCode=1
-| rex field=Hashes "SHA256=(?<sysmon_sha256>[A-Fa-f0-9]+)" ]
-| where file_sha256=sysmon_sha256
+<img width="579" height="187" alt="image" src="https://github.com/user-attachments/assets/3c9fe12f-96f4-4b9b-8aa3-b9a0e5949888" />
+
 
 2. Flow/IP-based Correlation
 
 Match Suricata download src/dest with Sysmon network events in a defined time window.
 
-Challenges & Limitations
 
-Suricata cannot inspect file contents over HTTPS unless TLS interception is used.
+## Challenges & Limitations
 
-Ensure time synchronization (NTP) across all hosts.
+* Suricata cannot inspect file contents over HTTPS unless TLS interception is used.
 
-Splunk field names may vary depending on installed add-ons — adjust SPL queries accordingly.
+* Ensure time synchronization (NTP) across all hosts.
 
-eve.json can become large; enable only the necessary log types.
+* Splunk field names may vary depending on installed add-ons — adjust SPL queries accordingly.
+
+* eve.json can become large; enable only the necessary log types.
 
 
