@@ -16,6 +16,32 @@
 <img width="1353" height="809" alt="image" src="https://github.com/user-attachments/assets/c8596ea6-7a09-4029-8de6-c357163a0030" />
 
 <img width="1337" height="831" alt="image" src="https://github.com/user-attachments/assets/bc7a2a2b-e55c-41b7-b4c9-67021d4f4112" />
+# Meterpreter Session Analysis – Windows Target
+
+This document analyzes the Meterpreter activity captured in the provided screenshot.  
+The session demonstrates **post-exploitation attempts** from a Kali Linux machine against a Windows host.
+
+---
+
+## Overview
+
+- **Attacker OS:** Kali Linux (`cyberagentberry@kali`)
+- **Victim OS:** Windows (`C:\Users\apple\Downloads`)
+- **Tool Used:** Meterpreter (Metasploit Framework)
+- **Objective:** Upload tools, execute commands, modify registry, and establish persistence.
+
+---
+
+## Key Actions Observed
+
+### 1. Initial Commands
+- `pwd` – Displayed current directory: `C:\Users\apple\Downloads`
+- `whoami` – Not recognized in Meterpreter; requires `getuid`
+- `execute -f notepad.exe` – Successfully created process (PID 10084)
+
+### 2. File Upload & Execution
+- Uploaded **Netcat** (`nc.exe`) to:
+
 
 
 <img width="1350" height="808" alt="image" src="https://github.com/user-attachments/assets/a5ffd08a-3c30-4201-87c5-52e5b7137159" />
